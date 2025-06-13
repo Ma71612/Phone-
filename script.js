@@ -1,7 +1,34 @@
-// script.js
+document.addEventListener("DOMContentLoaded", () => {
+  const lockScreen = document.getElementById("lockScreen");
+  const homeScreen = document.getElementById("homeScreen");
+  const apps = document.querySelectorAll(".app");
+  const openButtons = document.querySelectorAll("[data-app]");
+  const backButtons = document.querySelectorAll(".back-button");
 
-// Simulate basic interactions (e.g., screen toggle) document.addEventListener("DOMContentLoaded", () => { const powerButton = document.getElementById("power-button"); const screen = document.getElementById("screen");
+  // فتح الشاشة الرئيسية من شاشة القفل
+  lockScreen.addEventListener("click", () => {
+    lockScreen.classList.remove("active");
+    homeScreen.classList.add("active");
+  });
 
-if (powerButton && screen) { powerButton.addEventListener("click", () => { screen.classList.toggle("on"); }); }
+  // فتح أي تطبيق
+  openButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const appId = btn.getAttribute("data-app");
+      const appElement = document.getElementById(appId);
 
-// Add more interactivity here if needed (e.g., home button, volume, etc.) });
+      if (appElement) {
+        homeScreen.classList.remove("active");
+        appElement.classList.add("active");
+      }
+    });
+  });
+
+  // رجوع من التطبيق إلى الشاشة الرئيسية
+  backButtons.forEach(btn => {
+    btn.addEventListener("click", () => {
+      apps.forEach(app => app.classList.remove("active"));
+      homeScreen.classList.add("active");
+    });
+  });
+});
