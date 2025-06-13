@@ -1,30 +1,49 @@
-<!DOCTYPE html><html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My S24 Ultra Inspired Site</title>
-  <link rel="stylesheet" href="styles.css" />
-</head>
-<body>
-  <div class="phone-frame">
-    <header class="top-bar">
-      <h1>S24 Ultra UI</h1>
-    </header><main class="home-screen">
-  <div class="app-grid">
-    <div class="app-icon">📱</div>
-    <div class="app-icon">💬</div>
-    <div class="app-icon">📷</div>
-    <div class="app-icon">🌐</div>
-    <div class="app-icon">🎵</div>
-    <div class="app-icon">⚙️</div>
-  </div>
-</main>
-
-<footer class="nav-bar">
-  <button class="nav-btn">◀</button>
-  <button class="nav-btn">⬤</button>
-  <button class="nav-btn">■</button>
-</footer>
-
-  </div>  <script src="main.js"></script></body>
-</html>
+<!DOCTYPE html><html lang="ar"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>S24 Ultra UI</title>
+  <link rel="stylesheet" href="style.css">
+</head><body>
+  <!-- شاشة القفل -->
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-time" id="lockTime">12:00</div>
+    <div class="lock-date" id="lockDate">الجمعة، 14 يونيو</div>
+    <div class="lock-icon">🔒</div>
+    <button onclick="unlockPhone()">🔓 افتح</button>
+  </div>  <!-- الشاشة الرئيسية -->  <div class="home-screen" id="homeScreen" style="display: none;">
+    <div class="status-bar">
+      <span id="currentTime"></span>
+      <span>🔋 📶</span>
+    </div>
+    <div class="apps">
+      <div class="app" onclick="openApp('settingsApp')">⚙️</div>
+      <div class="app" onclick="openApp('musicApp')">🎵</div>
+      <div class="app" onclick="openApp('galleryApp')">🖼️</div>
+    </div>
+    <div class="app-bar">
+      <button onclick="openApp('settingsApp')">⚙️</button>
+      <button onclick="openApp('musicApp')">🎵</button>
+      <button onclick="openApp('galleryApp')">🖼️</button>
+    </div>
+  </div>  <!-- تطبيق الإعدادات -->  <div class="app-window" id="settingsApp">
+    <div class="app-header">
+      الإعدادات <button onclick="closeApp('settingsApp')">✖</button>
+    </div>
+    <div class="app-content">
+      <label>الوضع الداكن <input type="checkbox" onchange="toggleDarkMode(this)"></label>
+    </div>
+  </div>  <!-- تطبيق الموسيقى -->  <div class="app-window" id="musicApp">
+    <div class="app-header">
+      موسيقى <button onclick="closeApp('musicApp')">✖</button>
+    </div>
+    <div class="app-content">
+      <p>🎶 الآن يتم تشغيل: Track 1</p>
+    </div>
+  </div>  <!-- تطبيق المعرض -->  <div class="app-window" id="galleryApp">
+    <div class="app-header">
+      المعرض <button onclick="closeApp('galleryApp')">✖</button>
+    </div>
+    <div class="app-content">
+      <p>📸 لا توجد صور حالياً</p>
+    </div>
+  </div>  <script src="script.js"></script></body></html>
